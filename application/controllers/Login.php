@@ -8,6 +8,16 @@
 
 Class Login extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $login_details = $this->session->userdata('user_details');
+        if ( $login_details) {
+            $this->session->set_flashdata('errors', 'You are already logged in');
+            redirect('dashboard');
+        }
+    }
+
     public function index() {
         $this->load->view('header_page');
         $this->load->view('login/login_page');
@@ -33,11 +43,12 @@ Class Login extends CI_Controller {
                 redirect('login');
             }
             $user_details = $this->User->check_login_details($email, $password);
+
             if (! $user_details) {
                 $this->session->set_flashdata('errors', 'Invalid Login details');
                 redirect('login');
             }
-
+            $this->session->set_userdata('user_details', $user_details);
             $this->session->set_flashdata('success_message', 'Welcome User');
             redirect('dashboard');
         }

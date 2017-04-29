@@ -9,6 +9,16 @@
 class Register extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $login_details = $this->session->userdata('user_details');
+        if ( $login_details) {
+            $this->session->set_flashdata('errors', 'You are already logged in');
+            redirect('dashboard');
+        }
+    }
+
     public function index()
     {
         $this->load->view('header_page');

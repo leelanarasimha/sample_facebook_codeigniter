@@ -33,8 +33,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
+                <?php if ($this->session->userdata('user_details') == false) { ?>
                 <li><a href="<?php echo site_url('login'); ?>">Login</a></li>
                 <li><a href="<?php echo site_url('register'); ?>">Register</a></li>
+                <?php } else { ?>
+                    <li><a href="<?php echo site_url('logout'); ?>">Logout</a></li>
+                <?php } ?>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
