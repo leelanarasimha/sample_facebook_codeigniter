@@ -37,7 +37,8 @@
                 <li><a href="<?php echo site_url('login'); ?>">Login</a></li>
                 <li><a href="<?php echo site_url('register'); ?>">Register</a></li>
                 <?php } else { ?>
-                    <li><a href="<?php echo site_url('logout'); ?>">Logout</a></li>
+                    <li><a href="#" class="show_password_modal">Change Password</a></li>
+                    <li><a href="<?php echo site_url('logout'); ?>"><?php echo $logged_email; ?> Logout</a></li>
                 <?php } ?>
             </ul>
         </div><!--/.nav-collapse -->
