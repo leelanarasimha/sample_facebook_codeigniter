@@ -21,4 +21,27 @@ class User extends CI_Model {
         return $success;
 
     }
+
+    public function check_email_exist($email) {
+        $this->db->where('email', $email);
+        $query = $this->db->get('users');
+
+        if ($query->num_rows() >0) {
+            return $query->row_array();
+        } else {
+            return false;
+        }
+    }
+
+    public function check_login_details($email, $password) {
+        $this->db->where('email', $email);
+        $this->db->where('password', $password);
+        $query = $this->db->get('users');
+
+        if ($query->num_rows() >0) {
+            return $query->row_array();
+        } else {
+            return false;
+        }
+    }
 }

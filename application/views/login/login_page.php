@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h1 class="page-header">Login</h1>
-            <form method="post" action="">
+            <form method="post" action="<?php echo site_url('login/submit'); ?>">
                 <div class="form-group">
                     <label>Email Or Phone: </label>
                     <input type="text" name="email" class="form-control"/>

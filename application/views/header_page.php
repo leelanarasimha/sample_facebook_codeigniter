@@ -22,7 +22,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -39,5 +40,22 @@
     </div>
 </nav>
 
-<div style="margin-top: 20px;"></div>
+<div style="margin-top: 4em;"></div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+        <?php if ($this->session->flashdata('errors') != false) { ?>
+            <div class="alert alert-danger">
+                <?php echo $this->session->flashdata('errors'); ?>
+            </div>
+        <?php } ?>
+
+        <?php if ($this->session->flashdata('success_message') != false) { ?>
+            <div class="alert alert-success">
+                <?php echo $this->session->flashdata('success_message'); ?>
+            </div>
+        <?php } ?>
+
+    </div>
+</div>
 
