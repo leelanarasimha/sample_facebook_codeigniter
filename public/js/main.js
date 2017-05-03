@@ -8,14 +8,12 @@ $(document).ready(function() {
         $('.password_modal').modal('show');
     });
 
-
     $(document).on('submit', '.password_change_form', function(e) {
         var newPassword = $('.new_password').val();
         var confirmnewPassword = $('.confirm_new_password').val();
         if (newPassword == '') {
             alert('New Password is empty');
             e.preventDefault();
-
         }
     })
 

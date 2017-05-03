@@ -15,6 +15,7 @@ class MY_Controller extends CI_Controller {
         $login_details = $this->session->userdata('user_details');
         if ( $login_details) {
             $this->data['logged_email'] = $login_details['email'];
+            $this->logged_in_id = $login_details['id'];
         }
     }
 }
